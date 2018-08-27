@@ -45,7 +45,7 @@
                                 </feMerge>
                             </filter>
                         </defs>
-                        <svg:circle class="point" [attr.cx]="25" [attr.cy]="25" [attr.r]="25" stroke="#aaa" stroke-width="2" [attr.fill]="'url(#pattern' + node.id +')'"
+                        <svg:circle class="point" [ngClass]="'circle' + node.id" [attr.cx]="25" [attr.cy]="25" [attr.r]="25" stroke="#aaa" stroke-width="2" [attr.fill]="'url(#pattern' + node.id +')'"
                             [attr.filter]="node.isChecked? 'url(#dropshadow)': none" />
                         <!-- <svg:text text-anchor="middle" alignment-baseline="central" [attr.x]="node.width / 2" [attr.y]="node.height / 2">{{node.label}}</svg:text> -->
                         <!-- https://stackoverflow.com/questions/22883994/crop-to-fit-an-svg-pattern -->
@@ -68,9 +68,9 @@
 
             </ngx-graph>
         </div>
-        <div class="col-lg-2">
+        <div class="col-lg-2 align-self-end">
             <div class="float-right">
-                <div class="tips">
+                <div class="tips mb-2">
                     <div class="detail-infos" *ngIf="isShowPane">
                         <h4>{{selectedNodeTestLabel}}</h4>
                         <ul class="list-unstyled mb-3">
