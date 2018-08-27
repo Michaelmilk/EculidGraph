@@ -12,7 +12,7 @@ import * as shape from 'd3-shape';
 export class DashboardComponent extends BaseComponent implements OnInit {
 	query: string;
 	strengthList: any[];
-	isShow: boolean = false;
+	isShowPane: boolean = false;
 
 	hierarchialGraph: { links: any[], nodes: any[] };
 	links: any[];
@@ -126,8 +126,6 @@ export class DashboardComponent extends BaseComponent implements OnInit {
 			}
 		});
 
-		console.log("links", this.links)
-
 		this.nodes = [
 			{
 				id: 'start',
@@ -167,19 +165,33 @@ export class DashboardComponent extends BaseComponent implements OnInit {
 			}
 		];
 
+		this.nodes.forEach(t => t.isChecked = false);
+
 		this.hierarchialGraph = { links: this.links, nodes: this.nodes };
 
 	}
 
 	select(node: any) {
-		if (this.isShow && this.selectedNodeTestLabel == node.label) {
-			this.isShow = false;
-			node.isChecked = !node.isChecked;
+		if (this.isShowPane && this.selectedNodeTestLabel == node.label) {
+			this.isShowPane = false;
+			node.isChecked = false;
 		}
 		else {
-			this.isShow = true;
-			this.nodes.forEach(t => t.isChecked = false);
+			this.isShowPane = true;
+			node.isChecked = true;
+			
 		}
+
+		this.hierarchialGraph.nodes.forEach(t => {
+			if(t.id == node.id){
+				t.isChecked = node.isChecked;
+				$(<any>'.circle'+ t.id).attr("style","");
+			}
+			else{
+				t.isChecked = false;
+				$(<any>'.circle'+ t.id).css("filter","none");
+			}
+		});
 		this.selectedNodeTestLabel = node.label;
 	}
 
