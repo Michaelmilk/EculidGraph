@@ -1,4 +1,4 @@
-<nav class="navbar navbar-static-top text-white bg-dark fixed-top">
+<nav class="navbar navbar-dark bg-dark">
     <a class="navbar-brand text-white" href="#"><img class="mr-4 logo" src="../assets/images/Microsoft_logo.png" />Microsoft</a>
     <div>
         <img class="rounded-circle mr-2 head-icon" [src]="user.icon | safeUrl"
@@ -7,11 +7,11 @@
             <ng-template #noImageFound>
                 <img class="head-icon" src="../assets/images/user.png" alt="anonymous">
             </ng-template>
-        <span class="hidden-xs" [innerHTML]="user.name"></span>
+        <span class="text-light" [innerHTML]="user.name"></span>
     </div>
 </nav>
 
 <!-- Page Content -->
-<div class="px-5 mt-5 pt-3">
+<div class="px-5 mt-5">
     <router-outlet></router-outlet>
 </div>
