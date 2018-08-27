@@ -1,0 +1,12 @@
+.vscode/*
+/*/bin/
+/*/obj/
+/node_modules
+/dist
+*.tmp
+*.js
+*.map
+*.log
+!**/js/*.js
+!webpack.config.js
+!config/**
