@@ -6,4 +6,4 @@ const commonEnv = {
 
 }
 
-export const environment = Object.assign(commonEnv, environmentDev);
+export const environment = Object.assign(commonEnv, environmentProd);
