@@ -20,8 +20,12 @@
 
     <div class="row mt-5" id="graph" style="height: calc(100vh - 290px);">
         <div class="col-lg-10">
+            <!-- https://qiita.com/someone7140/items/55aedd0a2cb7c9742c87 -->
+            <!-- https://davewm.github.io/ngx-graphs/doc/index.html -->
+            <!-- https://stackblitz.com/edit/ngx-graph-simple-example -->
+            <!-- https://swimlane.github.io/ngx-graph/ -->
             <ngx-graph [enableZoom]="enableZoom" [autoZoom]="autoZoom" [panOnZoom]="panOnZoom" [panOffsetX]="panOffsetX" [panOffsetY]="panOffsetY"
-                [zoomLevel]="zoomLevel" [legend]="showLegend" [links]="hierarchialGraph.links" [nodes]="hierarchialGraph.nodes"
+                [autoCenter]="autoCenter" [zoomLevel]="zoomLevel" [legend]="showLegend" [links]="hierarchialGraph.links" [nodes]="hierarchialGraph.nodes"
                 [scheme]="colorScheme" [orientation]="orientation" [curve]="curve" (select)="select($event)">
 
                 <!-- <ng-template #defsTemplate>
