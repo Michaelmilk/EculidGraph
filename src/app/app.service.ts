@@ -11,6 +11,7 @@ import {
 } from '@angular/common/http';
 import { BaseService } from "./components/common/base.service";
 import { Logger } from "./helper/logger";
+import { Observable } from "../../node_modules/rxjs";
 
 @Injectable()
 export class AppService extends BaseService {
@@ -31,5 +32,15 @@ export class AppService extends BaseService {
 				headers: new HttpHeaders().append('Content-Type', 'image/jpg'), 
 				responseType: 'blob'
 			});
+			// .pipe(
+			// 	catchError((err: any) => {
+			// 		 if (err.status == 401) {
+			// 			 this.router.navigateByUrl('/login');
+			// 			 return EMPTY;
+			// 		 } else {
+			// 			 return throwError(err);
+			// 		 }
+			// 	})
+			// );
 	}
 }

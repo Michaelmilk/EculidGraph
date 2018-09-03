@@ -1,12 +1,9 @@
 <nav class="navbar navbar-dark bg-dark">
     <a class="navbar-brand text-white" href="#"><img class="mr-4 logo" src="../assets/images/Microsoft_logo.png" />Microsoft</a>
     <div>
-        <img class="rounded-circle mr-2 head-icon" [src]="user.icon | safeUrl"
-            alt="Place image title"
-            *ngIf="!isImageLoading; else noImageFound">
-            <ng-template #noImageFound>
-                <img class="head-icon" src="../assets/images/user.png" alt="anonymous">
-            </ng-template>
+       <img class="rounded-circle mr-2 head-icon" *ngIf="!isImageLoading" [src]="user.photo | safeUrl">
+         <img class="head-icon" *ngIf="isImageLoading" src="../assets/images/user.png">
+        <!-- <img class="rounded-circle mr-2 head-icon" src="https://euclidepic.blob.core.windows.net/pic/admin.jpg"> -->
         <span class="text-light" [innerHTML]="user.name"></span>
     </div>
 </nav>

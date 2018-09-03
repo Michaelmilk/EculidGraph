@@ -13,9 +13,9 @@ import { AppService } from './app.service';
     templateUrl: './app.component.html'
 })
 export class AppComponent extends BaseComponent implements OnInit, OnDestroy {
-	user: User;
+    user: User;
     isImageLoading: boolean;
-    constructor(public logger: Logger, private adalService: AdalService, private appService: AppService) {
+    constructor(public logger: Logger, public adalService: AdalService, private appService: AppService) {
         super(logger);
         this.logger.info(environment.enableAAD);
         if (environment.enableAAD) {
@@ -49,18 +49,6 @@ export class AppComponent extends BaseComponent implements OnInit, OnDestroy {
         console.log("user",this.user)
         console.log("isImageLoading",this.isImageLoading)
     }
-
-    //https://stackblitz.com/edit/angular-1yr75s?file=src%2Fapp%2Fapp.component.html
-	createImageFromBlob(image: Blob, user: User) {
-		let reader = new FileReader();
-		reader.addEventListener("load", () => {
-			user.icon = reader.result;
-		}, false);
-
-		if (image) {
-			reader.readAsDataURL(image);
-        }
-	}
 
     logout() {
 		if (this.user.authenticated) {
